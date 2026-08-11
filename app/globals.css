@@ -163,12 +163,16 @@ img {
 }
 
 .brand-mark {
+  background: var(--wine);
   display: block;
+  -webkit-mask: url("/page-logo-transparent.png") center / contain no-repeat;
+  mask: url("/page-logo-transparent.png") center / contain no-repeat;
   width: 100%;
 }
 
 .brand-mark img {
   height: auto;
+  opacity: 0;
   width: 100%;
 }
 
@@ -1114,14 +1118,27 @@ h2 {
   position: absolute;
 }
 
+.moment-bubble::before {
+  background: var(--photo-tone, var(--color-sand));
+  content: "";
+  inset: 0;
+  mix-blend-mode: color;
+  opacity: 0.24;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
 .moment-bubble img {
+  filter: saturate(0.72) contrast(1.04);
   height: 100%;
   object-fit: cover;
-  transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: filter 700ms ease, transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
   width: 100%;
 }
 
 .moment-bubble:hover img {
+  filter: saturate(0.9) contrast(1.04);
   transform: scale(1.045);
 }
 
@@ -1151,11 +1168,11 @@ h2 {
   font-size: 12px;
 }
 
-.moment-bubble-friends { grid-column: 1 / 5; grid-row: 2 / span 4; }
-.moment-bubble-reading { border-radius: 110px 34px 34px 34px; grid-column: 5 / 8; grid-row: 1 / span 3; }
-.moment-bubble-notes { grid-column: 9 / 13; grid-row: 3 / span 4; }
-.moment-bubble-table { border-radius: 34px 34px 120px 34px; grid-column: 5 / 9; grid-row: 4 / span 4; }
-.moment-bubble-gossip { grid-column: 1 / 13; grid-row: 8 / span 2; }
+.moment-bubble-friends { --photo-tone: var(--color-deep-red); grid-column: 1 / 5; grid-row: 2 / span 4; }
+.moment-bubble-reading { --photo-tone: var(--color-sand); border-radius: 110px 34px 34px 34px; grid-column: 5 / 8; grid-row: 1 / span 3; }
+.moment-bubble-notes { --photo-tone: var(--color-olive-green); grid-column: 9 / 13; grid-row: 3 / span 4; }
+.moment-bubble-table { --photo-tone: var(--color-mustard); border-radius: 34px 34px 120px 34px; grid-column: 5 / 9; grid-row: 4 / span 4; }
+.moment-bubble-gossip { --photo-tone: var(--color-teal); grid-column: 1 / 13; grid-row: 8 / span 2; }
 .moment-bubble-gossip img { object-position: center 48%; }
 
 .moment-thought {
@@ -1507,7 +1524,11 @@ h2 {
 }
 
 .brand-mark-light img {
-  filter: grayscale(1) brightness(0) invert(0.92);
+  filter: none;
+}
+
+.brand-mark-light {
+  background: var(--cream-soft);
 }
 
 .site-footer p,

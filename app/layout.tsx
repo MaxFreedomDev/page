@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   title,
   description,
   icons: {
-    icon: assetPath("/favicon.png"),
-    shortcut: assetPath("/favicon.png"),
+    icon: assetPath("/favicon.svg"),
+    shortcut: assetPath("/favicon.svg"),
   },
   openGraph: {
     title,
