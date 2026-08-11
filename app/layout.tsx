@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { assetPath } from "./assetPath";
+import { displayFont, editorialFont, monoFont } from "./fonts";
 
 const title = "PAGE — книжный клуб без рамок и дедлайнов";
 const description =
   "Замедлитесь с книгой. Наполняйтесь с нами. Одна книга в месяц, закрытое Telegram-комьюнити и свободный формат участия.";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const socialImage = new URL(assetPath("/og.png"), `${new URL(siteUrl).origin}/`).toString();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     images: [
       {
-        url: assetPath("/og.png"),
+        url: socialImage,
         width: 1536,
         height: 1024,
         alt: title,
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: [assetPath("/og.png")],
+    images: [socialImage],
   },
 };
 
@@ -44,7 +46,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html
+      className={`${editorialFont.variable} ${displayFont.variable} ${monoFont.variable}`}
+      lang="ru"
+    >
       <body>{children}</body>
     </html>
   );

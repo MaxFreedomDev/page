@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+import Image from "next/image";
 import { BookCarousel } from "./BookCarousel";
 import { assetPath } from "./assetPath";
 
@@ -5,16 +7,19 @@ const Arrow = ({ down = false }: { down?: boolean }) => (
   <span aria-hidden="true">{down ? "↓" : "↗"}</span>
 );
 
-const BrandMark = ({ light = false }: { light?: boolean }) => (
-  <span className={`brand-mark${light ? " brand-mark-light" : ""}`} aria-hidden="true">
-    <img
-      alt=""
-      height="516"
-      src={assetPath("/page-logo-transparent.png")}
-      width="1102"
-    />
-  </span>
-);
+const BrandMark = ({ light = false }: { light?: boolean }) => {
+  const logoPath = assetPath("/page-logo-transparent.png");
+
+  return (
+    <span
+      aria-hidden="true"
+      className={`brand-mark${light ? " brand-mark-light" : ""}`}
+      style={{ "--brand-mask": `url("${logoPath}")` } as CSSProperties}
+    >
+      <Image alt="" height={516} src={logoPath} width={1102} />
+    </span>
+  );
+};
 
 const principles = [
   {
@@ -109,14 +114,48 @@ export default function Home() {
             <p className="community-count">
               <strong>128</strong> читателей уже с нами
             </p>
+            <div className="hero-tags" aria-label="Коротко о клубе">
+              <span>1 книга / месяц</span>
+              <span>онлайн</span>
+              <span>без дедлайнов</span>
+            </div>
           </div>
 
           <div className="hero-space" aria-hidden="true">
+            <figure className="hero-photo hero-photo-reading">
+              <Image
+                alt=""
+                height={1800}
+                loading="eager"
+                src={assetPath("/moment-reading.jpg")}
+                width={1440}
+              />
+              <figcaption><span>01</span> читаем в своём темпе</figcaption>
+            </figure>
+
+            <figure className="hero-photo hero-photo-friends">
+              <Image
+                alt=""
+                height={1800}
+                loading="eager"
+                src={assetPath("/moment-friends.jpg")}
+                width={1440}
+              />
+              <figcaption><span>02</span> встречаемся своими</figcaption>
+            </figure>
+
             <div className="hero-brand-panel">
               <BrandMark />
               <span>Книжный клуб · с 2025</span>
             </div>
-            <p>Падайте в истории, а не в дедлайны</p>
+
+            <article className="hero-chat-card">
+              <span>из чата клуба · 22:47</span>
+              <p>«Я пришла просто послушать — и осталась спорить до полуночи»</p>
+              <small>12 реакций · 8 ответов</small>
+            </article>
+
+            <p className="hero-slogan">Падайте в истории, а не в дедлайны</p>
           </div>
 
           <div className="quiz-strip">
@@ -219,23 +258,23 @@ export default function Home() {
 
         <div className="moments-cloud">
           <figure className="moment-bubble moment-bubble-friends">
-            <img
+            <Image
               alt="Друзья смеются во время встречи книжного клуба"
-              height="1800"
+              height={1800}
               loading="lazy"
               src={assetPath("/moment-friends.jpg")}
-              width="1440"
+              width={1440}
             />
             <figcaption><span>●</span> 48 сообщений после эфира</figcaption>
           </figure>
 
           <figure className="moment-bubble moment-bubble-reading">
-            <img
+            <Image
               alt="Читательница перелистывает книгу у окна"
-              height="1800"
+              height={1800}
               loading="lazy"
               src={assetPath("/moment-reading.jpg")}
-              width="1440"
+              width={1440}
             />
             <figcaption><span>↗</span> Тот самый момент</figcaption>
           </figure>
@@ -247,12 +286,12 @@ export default function Home() {
           </article>
 
           <figure className="moment-bubble moment-bubble-notes">
-            <img
+            <Image
               alt="Участница клуба делает заметки в книге"
-              height="1662"
+              height={1662}
               loading="lazy"
               src={assetPath("/club-notes.jpg")}
-              width="946"
+              width={946}
             />
             <figcaption><span>✦</span> На полях · 00:13</figcaption>
           </figure>
@@ -264,23 +303,23 @@ export default function Home() {
           </article>
 
           <figure className="moment-bubble moment-bubble-table">
-            <img
+            <Image
               alt="Книги, заметки и чашки после встречи книжного клуба"
-              height="1800"
+              height={1800}
               loading="lazy"
               src={assetPath("/moment-table.jpg")}
-              width="1440"
+              width={1440}
             />
             <figcaption><span>●</span> Всё, что осталось на столе</figcaption>
           </figure>
 
           <figure className="moment-bubble moment-bubble-gossip">
-            <img
+            <Image
               alt="Участники книжного клуба смеются над открытой книгой"
-              height="854"
+              height={854}
               loading="lazy"
               src={assetPath("/club-gossip.jpg")}
-              width="1820"
+              width={1820}
             />
             <figcaption><span>↗</span> Book gossip · 22:47</figcaption>
           </figure>

@@ -6,16 +6,13 @@ const isRootPagesSite = repository.endsWith(".github.io");
 const basePath = isGitHubPages && !isRootPagesSite ? `/${repository}` : "";
 
 const nextConfig: NextConfig = {
-  ...(isGitHubPages ? { output: "export" as const } : {}),
-  trailingSlash: isGitHubPages,
+  output: "export",
+  trailingSlash: true,
   basePath,
   assetPrefix: basePath,
   images: {
     unoptimized: true,
   },
-  ...(isGitHubPages
-    ? { typescript: { tsconfigPath: "tsconfig.pages.json" } }
-    : {}),
 };
 
 export default nextConfig;

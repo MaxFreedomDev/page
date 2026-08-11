@@ -137,8 +137,6 @@ export function BookCarousel() {
       aria-labelledby="book-title"
       aria-roledescription="карусель"
     >
-      <div className="paper-fragment paper-one" aria-hidden="true" />
-      <div className="paper-fragment paper-two" aria-hidden="true" />
       <div className="carousel-topbar">
         <p>Книга месяца</p>
         <div className="month-tabs" role="tablist" aria-label="Выбрать месяц">
