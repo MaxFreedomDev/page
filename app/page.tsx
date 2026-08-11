@@ -1,5 +1,4 @@
 import { BookCarousel } from "./BookCarousel";
-import { ScrollFaller } from "./ScrollFaller";
 import { assetPath } from "./assetPath";
 
 const Arrow = ({ down = false }: { down?: boolean }) => (
@@ -81,8 +80,6 @@ export default function Home() {
           Присоединиться <Arrow />
         </a>
       </header>
-
-      <ScrollFaller />
 
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-frame">
@@ -202,36 +199,98 @@ export default function Home() {
         id="moments"
         aria-labelledby="moments-title"
       >
-        <div className="moments-copy-panel">
-          <p className="kicker">Не постановка</p>
-          <h2 id="moments-title">
-            Вот ради чего остаются после созвона
-          </h2>
-          <p>
-            Вспышка ловит то, что невозможно написать в программе клуба: смех,
-            спор на полях и внезапное узнавание себя.
-          </p>
+        <div className="moments-intro">
+          <div>
+            <p className="kicker">Жизнь клуба · без фильтров</p>
+            <h2 id="moments-title">
+              Книги превращаются
+              <br />
+              <i>в живые истории.</i>
+            </h2>
+          </div>
+          <div className="moments-intro-note">
+            <span className="live-pill"><i /> Сейчас в клубе</span>
+            <p>
+              Не идеальные кадры, а настоящие моменты: заметки на полях,
+              горячие споры и сообщения, после которых хочется читать дальше.
+            </p>
+          </div>
         </div>
-        <figure className="moment-photo moment-photo-wide">
-          <img
-            alt="Участники книжного клуба смеются над открытой книгой"
-            height="854"
-            loading="lazy"
-            src={assetPath("/club-gossip.jpg")}
-            width="1820"
-          />
-          <figcaption>Book gossip · 22:47</figcaption>
-        </figure>
-        <figure className="moment-photo moment-photo-tall">
-          <img
-            alt="Участница клуба делает заметки в книге"
-            height="1662"
-            loading="lazy"
-            src={assetPath("/club-notes.jpg")}
-            width="946"
-          />
-          <figcaption>На полях · 00:13</figcaption>
-        </figure>
+
+        <div className="moments-cloud">
+          <figure className="moment-bubble moment-bubble-friends">
+            <img
+              alt="Друзья смеются во время встречи книжного клуба"
+              height="1800"
+              loading="lazy"
+              src={assetPath("/moment-friends.jpg")}
+              width="1440"
+            />
+            <figcaption><span>●</span> 48 сообщений после эфира</figcaption>
+          </figure>
+
+          <figure className="moment-bubble moment-bubble-reading">
+            <img
+              alt="Читательница перелистывает книгу у окна"
+              height="1800"
+              loading="lazy"
+              src={assetPath("/moment-reading.jpg")}
+              width="1440"
+            />
+            <figcaption><span>↗</span> Тот самый момент</figcaption>
+          </figure>
+
+          <article className="moment-thought moment-thought-red">
+            <span>01 / чат клуба</span>
+            <blockquote>«Я пришла просто послушать — и осталась спорить до полуночи»</blockquote>
+            <p>12 реакций</p>
+          </article>
+
+          <figure className="moment-bubble moment-bubble-notes">
+            <img
+              alt="Участница клуба делает заметки в книге"
+              height="1662"
+              loading="lazy"
+              src={assetPath("/club-notes.jpg")}
+              width="946"
+            />
+            <figcaption><span>✦</span> На полях · 00:13</figcaption>
+          </figure>
+
+          <article className="moment-thought moment-thought-mustard">
+            <span>Вопрос месяца</span>
+            <blockquote>Какой герой раздражал вас до последней страницы?</blockquote>
+            <p>Обсудить ↗</p>
+          </article>
+
+          <figure className="moment-bubble moment-bubble-table">
+            <img
+              alt="Книги, заметки и чашки после встречи книжного клуба"
+              height="1800"
+              loading="lazy"
+              src={assetPath("/moment-table.jpg")}
+              width="1440"
+            />
+            <figcaption><span>●</span> Всё, что осталось на столе</figcaption>
+          </figure>
+
+          <figure className="moment-bubble moment-bubble-gossip">
+            <img
+              alt="Участники книжного клуба смеются над открытой книгой"
+              height="854"
+              loading="lazy"
+              src={assetPath("/club-gossip.jpg")}
+              width="1820"
+            />
+            <figcaption><span>↗</span> Book gossip · 22:47</figcaption>
+          </figure>
+        </div>
+
+        <div className="moments-footer-note" aria-hidden="true">
+          <span>читать</span><i />
+          <span>обсуждать</span><i />
+          <span>чувствовать</span>
+        </div>
       </section>
 
       <section className="plans" id="plans" aria-labelledby="plans-title">
@@ -324,29 +383,18 @@ export default function Home() {
 
       <section className="landing-zone" aria-labelledby="landing-title">
         <div className="landing-copy">
-          <p className="kicker">Финал падения</p>
+          <p className="kicker">До следующей главы</p>
           <h2 id="landing-title">
             Вы долистали.
             <br />
-            <i>Она — долетела.</i>
+            <i>Встретимся в клубе.</i>
           </h2>
           <p>
             Теперь можно открыть следующую книгу и начать всё сначала — только
             уже вместе.
           </p>
         </div>
-        <div className="landing-stage" data-landing-stack aria-hidden="true">
-          <span className="impact-line impact-one" />
-          <span className="impact-line impact-two" />
-          <img
-            alt=""
-            className="landed-reader"
-            data-landed-reader
-            draggable="false"
-            height="1536"
-            src={assetPath("/falling-reader-cutout-v2.png")}
-            width="1024"
-          />
+        <div className="landing-stage" aria-hidden="true">
           <div className="book-stack">
             <div className="stack-book stack-one"><span>PAGE</span></div>
             <div className="stack-book stack-two"><span>ЧИТАЕМ</span></div>
