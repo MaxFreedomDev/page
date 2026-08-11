@@ -26,3 +26,23 @@ export const monoFont = localFont({
   display: "swap",
   variable: "--font-mono",
 });
+
+export const audexFont = localFont({
+  src: "./fonts/Audex-Regular.woff",
+  display: "swap",
+  variable: "--font-audex",
+});
+
+export const unboundedFont = localFont({
+  src: "./fonts/Unbounded-Medium.ttf",
+  display: "swap",
+  variable: "--font-unbounded",
+  weight: "500",
+});
+
+export const poiretOneFont = localFont({
+  src: "./fonts/PoiretOne-Regular.ttf",
+  display: "swap",
+  variable: "--font-poiret-one",
+  weight: "400",
+});

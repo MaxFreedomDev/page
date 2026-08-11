@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { assetPath } from "./assetPath";
-import { displayFont, editorialFont, monoFont } from "./fonts";
+import {
+  audexFont,
+  displayFont,
+  editorialFont,
+  monoFont,
+  poiretOneFont,
+  unboundedFont,
+} from "./fonts";
 
 const title = "PAGE — книжный клуб без рамок и дедлайнов";
 const description =
@@ -47,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className={`${editorialFont.variable} ${displayFont.variable} ${monoFont.variable}`}
+      className={`${editorialFont.variable} ${displayFont.variable} ${monoFont.variable} ${audexFont.variable} ${unboundedFont.variable} ${poiretOneFont.variable}`}
       lang="ru"
     >
       <body>{children}</body>
