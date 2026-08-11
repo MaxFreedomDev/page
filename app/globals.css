@@ -1,5 +1,53 @@
 @import "tailwindcss";
 
+@font-face {
+  font-display: swap;
+  font-family: "Cormorant Garamond Local";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/CormorantGaramond-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Cormorant Garamond Local";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/CormorantGaramond-Italic.otf") format("opentype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Gerhaus Local";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Gerhaus-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Gerhaus Local";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/Gerhaus-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Consola Mono Local";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/ConsolaMono-Book.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Consola Mono Local";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/ConsolaMono-Bold.ttf") format("truetype");
+}
+
 :root {
   /* Base palette */
   --color-ivory: #f5f2ed;
@@ -52,7 +100,10 @@
   --ink: var(--color-charcoal);
   --muted: var(--color-warm-gray);
   --line: rgb(var(--rgb-charcoal) / 22%);
-  --serif: "Iowan Old Style", "Baskerville", "Times New Roman", serif;
+  --editorial: "Cormorant Garamond Local", "Iowan Old Style", "Baskerville", serif;
+  --display: "Gerhaus Local", "Arial Narrow", sans-serif;
+  --mono: "Consola Mono Local", "SFMono-Regular", "Roboto Mono", monospace;
+  --serif: var(--editorial);
   --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
 }
@@ -230,7 +281,10 @@ h1 {
 h1 i,
 h2 i {
   color: var(--wine);
+  font-family: var(--display);
+  font-style: normal;
   font-weight: 400;
+  letter-spacing: -0.035em;
 }
 
 h2 {
@@ -1465,6 +1519,46 @@ h2 {
 
 .site-footer > a:last-child {
   justify-self: end;
+}
+
+/* Typographic roles */
+.site-header nav a,
+.header-button,
+.kicker,
+.button,
+.text-link,
+.community-count,
+.hero-brand-panel > span:last-child,
+.club-extra span,
+.carousel-topbar,
+.book-eyebrow,
+.book-facts span,
+.cover-date span,
+.carousel-cover > span,
+.carousel-cover small,
+.carousel-progress,
+.live-pill,
+.moment-bubble figcaption,
+.moment-thought > span,
+.moment-thought > p,
+.best-value,
+.after-payment > span,
+.stack-book span,
+.site-footer p,
+.site-footer > a:last-child {
+  font-family: var(--mono);
+}
+
+.quiz-strip article span,
+.card-number,
+.format-list article > span,
+.book-facts strong,
+.cover-date strong,
+.carousel-cover > strong,
+.price strong {
+  font-family: var(--display);
+  font-style: normal;
+  font-weight: 400;
 }
 
 @media (max-width: 1050px) {
